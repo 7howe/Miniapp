@@ -22,4 +22,14 @@ class Guanggao extends Controller
         $this->assign('adv_list',$list);
         return $this->fetch();
     }
+
+    public function add()
+    {
+        if ($this->request->isPost()) {
+
+        } else {
+            $this->assign('adv_info',null);
+            return $this->fetch();
+        }
+    }
 }

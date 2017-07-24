@@ -35,4 +35,14 @@ class Category extends Controller
         $this->assign('tel',null);
         return $this->fetch();
     }
+
+    public function add()
+    {
+        if ($this->request->isPost()) {
+
+        } else {
+            $this->assign('cate_info',null);
+            return $this->fetch();
+        }
+    }
 }

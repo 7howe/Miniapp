@@ -36,6 +36,8 @@ class Adminuser extends  Controller
                 db('adminuser')->insert($map);
             }
         } else {
+            $this->assign('id',null);
+            $this->assign('adminuserinfo',null);
             return $this->fetch();
         }
     }

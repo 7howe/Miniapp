@@ -21,4 +21,14 @@ class Voucher extends Controller
         $this->assign('voucher_list',$list);
         return $this->fetch();
     }
+
+    public function add()
+    {
+        if ($this->request->isPost()) {
+
+        } else {
+            $this->assign('voucher',null);
+            return $this->fetch();
+        }
+    }
 }
