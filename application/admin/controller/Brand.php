@@ -18,4 +18,11 @@ class Brand extends Controller
         $this->assign('list',$list);
         return $this->fetch();
     }
+
+    public function add()
+    {
+        $this->assign('brand_info',null);
+        $this->assign('id',null);
+        return $this->fetch();
+    }
 }
