@@ -27,4 +27,28 @@ class Product extends Controller
         $this->assign('page_index',1);
         return $this->fetch();
     }
+
+    public function add()
+    {
+        $this->assign('pro_allinfo',null);
+        $this->assign('shangchang',null);
+        $this->assign('id',null);
+        $this->assign('name',null);
+        $this->assign('type',null);
+        $this->assign('shop_id',null);
+        $this->assign('page',null);
+        $this->assign('catetwo',null);
+        $this->assign('img_str',null);
+
+        if ($this->request->isPost()) {
+
+        } else {
+            $cate = db('category')->field('id,tid,name')->select();
+
+            $brand = db('brand')->field('id,name')->select();
+            $this->assign('cate_list',$cate);
+            $this->assign('brand_list',$brand);
+            return $this->fetch();
+        }
+    }
 }

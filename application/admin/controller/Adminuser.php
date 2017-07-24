@@ -20,4 +20,23 @@ class Adminuser extends  Controller
         $this->assign('userlist',$list);
         return $this->fetch();
     }
+
+    public function add()
+    {
+        if ($this->request->isPost()) {
+            if (!$this->request->post('name') || !$this->request->post('password')) {
+                $this->error('账号、密码，都不能为空');
+            } else{
+                $map = array(
+                    'name' => $this->request->post('name'),
+                    'uname' => '普通管理员',
+                    'qx'   => 5,
+                    'password' => MD5(MD5($this->request->post('password')))
+                );
+                db('adminuser')->insert($map);
+            }
+        } else {
+            return $this->fetch();
+        }
+    }
 }
