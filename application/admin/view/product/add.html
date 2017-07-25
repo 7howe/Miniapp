@@ -105,7 +105,7 @@
                     <!-- 遍历 -->
                     <option value="">一级分类</option>
                     {volist name="cate_list" id="v"}
-                        <option value="{$v.id}" {if condition="$v.id eq $pro_allinfo['tid']"}selected="selected"{/if}>-- {$v.name}</option>
+                        <option value="{$v.id}" {if condition="$v.tid eq $pro_allinfo['tid']"}selected="selected"{/if}>-- {$v.name}</option>
                     {/volist}
                     <!-- 遍历 -->
                 </select>

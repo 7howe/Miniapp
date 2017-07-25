@@ -75,18 +75,18 @@
                 <td>{$v.name}</td>
                 <td>{$v.price_yh}</td>
                 <td>{$v.renqi}</td>
-                <td><p id="new_{$v.id}"><if condition="$v.is_show eq 1"><a class="label blue" onclick="pro_new({$v.id},1);">新品上市<else /><a class="label err" onclick="pro_new({$v.id},0);">非新品</if></a></p>
-                    <p id="hot_{$v.id}" style="margin-top:5px;"><if condition="$v.is_hot eq 1"><a class="label succ" onclick="pro_hot({$v.id},1);">热卖商品<else /><a class="label err" onclick="pro_hot({$v.id},0);">非热卖</if></a></p>
+                <td><p id="new_{$v.id}">{if condition="$v.is_show eq 1"}<a class="label blue" onclick="pro_new({$v.id},1);">新品上市{else /}<a class="label err" onclick="pro_new({$v.id},0);">非新品{/if}</a></p>
+                    <p id="hot_{$v.id}" style="margin-top:5px;">{if condition="$v.is_hot eq 1"}<a class="label succ" onclick="pro_hot({$v.id},1);">热卖商品{else /}<a class="label err" onclick="pro_hot({$v.id},0);">非热卖{/if}</a></p>
                     <!-- <p id="zk_{$v.id}" style="margin-top:5px;"><if condition="$v.is_sale eq 1"><a class="label fail" onclick="pro_zk({$v.id},1);">折扣商品<else /><a class="label err" onclick="pro_zk({$v.id},0);">非折扣</if></a></p> -->
                 </td>
-                <td><if condition="$v.type eq 1"><label style="color:green;">推荐</label></if></td>
+                <td>{if condition="$v.type eq 1"}<label style="color:green;">推荐</label>{/if}</td>
                 <td>
                     <!-- <if condition="$v.pro_buff neq ''">
                       <a href="{:url('Product/pro_guige')}?pid={$v.id}">
                     <else />
                     <a href="{:url('Product/set_attr')}?pid={$v.id}"></if><font style="color:red;">属性设置</font></a> | -->
                     <a href="{:url('set_tj')}?pro_id={$v.id}&name={$name}&shop_id={$shop_id}&tuijian={$tuijian}">推荐</a> |
-                    <a href="{:url('Product/add')}?id={$v.id}&name={$name}&shop_id={$shop_id}&tuijian={$tuijian}">修改</a> |
+                    <a href="{:url('Product/edit')}?pid={$v.id}&name={$name}&shop_id={$shop_id}&tuijian={$tuijian}">修改</a> |
                     <a onclick="del_id_urls({$v.id})">删除</a>
                 </td>
             </tr>
