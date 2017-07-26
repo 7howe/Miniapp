@@ -158,8 +158,22 @@ class Product extends Controller
     {
         if ($pid = $this->request->get('pid')) {
             $pro_info = db('product')->find($pid);
+            $cate_list = db('category')->field('id,tid,name')->where('tid','eq',1)->select();
+            $catetwo = db('category')
+                ->field('id,tid,name')
+                ->where('tid','eq',function  ($query) use ($pro_info) {
+                    $query->name('category')->where('id','eq',$pro_info['cid'])->field('tid');
+                })
+                ->select();
+            $pro_info['tid'] = $catetwo ?$catetwo[0]['tid'] : null;
+            $brand_list = db('brand')->field('id,name')->order('id desc')->select();
+            $this->assign('brand_list',$brand_list);
+            $this->assign('cate_list',$cate_list);
+            $this->assign('catetwo',$catetwo);
             if ($pro_info) {
-                $this->assign('name',$pro_info['name']);
+                $this->assign('pro_allinfo',$pro_info);
+                $img_str = $pro_info['photo_string'] != '' ? explode(',',trim($pro_info['photo_string'],',')) : null;
+                $this->assign('img_str',$img_str);
                 return $this->fetch('add');
             } else {
                 $this->error('非法产品ID');
