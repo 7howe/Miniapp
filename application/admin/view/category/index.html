@@ -57,7 +57,7 @@
 			<td>
 				<a href="{:url('set_tj')}?tj_id={$tr1.id}">推荐</a>
 				{if condition="$tr1.bz_4 eq 1"}
-					| <a href="{:url('add')}?cid={$tr1.id}">修改</a> |
+					| <a href="{:url('edit')}?cid={$tr1.id}">修改</a> |
 					<a onclick="del_id_url({$tr1.id})">删除</a>
 				{/if}
 			</td>
@@ -70,10 +70,8 @@
 						<td>{if condition="$tr2.bz_2 eq 1"}<font style="color:#090">推荐</font>{/if}</td>
 						<td>
 							<a href="{:url('set_tj')}?tj_id={$tr2.id}">推荐</a>
-							{if condition="$tr1.bz_4 eq 1"}
-								| <a href="{:url('add')}?cid={$tr2.id}">修改</a> |
+								| <a href="{:url('edit')}?cid={$tr2.id}">修改</a> |
 								<a onclick="del_id_url({$tr2.id})">删除</a>
-							{/if}
 						</td>
 					</tr>
 					{if condition="array_key_exists('_child',$tr2)" }
@@ -84,10 +82,8 @@
 								<td>{if condition="$tr3.bz_2 eq 1"}<font style="color:#090">推荐</font>{/if}</td>
 								<td>
 									<a href="{:url('set_tj')}?tj_id={$tr3.id}">推荐</a>
-									{if condition="$tr1.bz_4 eq 1"}
-										| <a href="{:url('add')}?cid={$tr3.id}">修改</a> |
-										<a onclick="del_id_url({$tr2.id})">删除</a>
-									{/if}
+										| <a href="{:url('edit')}?cid={$tr3.id}">修改</a> |
+										<a onclick="del_id_url({$tr3.id})">删除</a>
 								</td>
 							</tr>
 						{/volist}

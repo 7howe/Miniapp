@@ -29,7 +29,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 品牌管理 <span class="c-gray en">&gt;</span> 新增品牌 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-    <form class="form form-horizontal" action="{:url('save')}" method="post" onsubmit="return ac_from();" enctype="multipart/form-data">
+    <form class="form form-horizontal" action="" method="post"  enctype="multipart/form-data">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>品牌名称：</label>
             <div class="formControls col-xs-8 col-sm-3">
@@ -39,7 +39,11 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>品牌图片，图片大小120*120</label>
             <div class="formControls col-xs-8 col-sm-3">
+                {if condition="$brand_info.photo neq ''"}
+                    <img src="/data/{$brand_info.photo}" alt="" height="120px" width="120px">
+                {else /}
                 <input  type="file" name="file" id="file" value="">
+                {/if}
             </div>
         </div>
 
@@ -63,24 +67,7 @@
 <script type="text/javascript" src="__PUBLIC__/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/admin/lib/laypage/1.2/laypage.js"></script>
 
-<script>
-    function ac_from(){
-        var name=document.getElementById('name').value;
-        if(!name){
-            alert('请输入登录账号！');
-            return false;
-        }
 
-        if(!<?php echo $id; ?>){
-            var password=document.getElementById('password').value;
-            if(password.length<6){
-                alert('密码长度不能少于6');
-                return false;
-            }
-        }
-
-    }
-</script>
 
 
 </body>

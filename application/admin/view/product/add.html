@@ -83,7 +83,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 产品管理 <span class="c-gray en">&gt;</span> 添加产品 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-    <form class="form form-horizontal" action="?id={$id}&page={$page}&type={$type}&name={$name}&shop_id={$shop_id}" method="post" onsubmit="return ac_from();" enctype="multipart/form-data">
+    <form class="form form-horizontal" action="" method="post" onsubmit="return ac_from();" enctype="multipart/form-data">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>产品名称：</label>
             <div class="formControls col-xs-8 col-sm-3">
@@ -105,7 +105,7 @@
                     <!-- 遍历 -->
                     <option value="">一级分类</option>
                     {volist name="cate_list" id="v"}
-                        <option value="{$v.id}" {if condition="$v.tid eq $pro_allinfo['tid']"}selected="selected"{/if}>-- {$v.name}</option>
+                        <option value="{$v.id}" {if condition="$v.id eq $pro_allinfo['tid']"}selected="selected"{/if}>-- {$v.name}</option>
                     {/volist}
                     <!-- 遍历 -->
                 </select>
@@ -114,9 +114,9 @@
                 <?php if($catetwo) { ?>
                 <select class="inp_1" name="cid" id="cid" style="width:150px;">
                     <option value="">二级分类</option>
-                    <volist name="catetwo" id="v">
-                        <option value="{$v.id}" <if condition="$v.id eq $pro_allinfo['cid']">selected="selected"</if>>-- {$v.name}</option>
-                    </volist>
+                    {volist name="catetwo" id="v"}
+                        <option value="{$v.id}" {if condition="$v.id eq $pro_allinfo['cid']"}selected="selected"{/if}>-- {$v.name}</option>
+                    {/volist}
                 </select>
 
                 <?php } else { ?>
@@ -302,7 +302,9 @@
     //初始化编辑器
     $('#content').xheditor({
         skin:'nostyle' ,
-        upImgUrl:'{:url("Upload/xheditor")}'
+        upImgUrl:'{:url("Upload/xheditor")}',
+        urlBase:'public/',
+        urlType:'rel'
     });
 
     function upadd(obj){

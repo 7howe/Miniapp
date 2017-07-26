@@ -60,7 +60,7 @@
                 <td>{$v.addtime|time_format}</td>
                 <td>{if condition="$v.qx eq 4"}超级管理员{else /}普通管理员{/if}</td>
                 <td class="obj_1">
-                    <a href="{:url('Adminuser/add')}?id={$v.id}">修改</a> |
+                    <a href="{:url('Adminuser/edit')}?id={$v.id}">修改</a> |
                     <a onclick='del_id_urls({$v.id})'>删除</a>
                 </td>
             </tr>
@@ -155,9 +155,9 @@
     }
 
     //更改按钮
-    if(type=='xz'){
+   /* if(type=='xz'){
         $('.obj_1').html('<input type="button" value="选 择" class="aaa_pts_web_3" style="margin:3px 0;" onclick="window_opener(this)">');
-    }
+    }*/
 
     function window_opener(e){
         var obj=$(e);
