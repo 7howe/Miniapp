@@ -43,7 +43,6 @@ class Category extends Controller
 
     public function add()
     {
-        echo $this->category_path;
         if ($this->request->isPost()) {
             $data = $this->request->post();
             if ($thumb = $this->request->file('file')) {
@@ -69,9 +68,17 @@ class Category extends Controller
         }
     }
 
-    public function set_tj()
+    public function set_tj($tj_id)
     {
-
+        $tj_id = intval($tj_id);
+        if ($category = db('category')->find($tj_id)) {
+            $data['bz_2'] = $category['bz_2']== 1 ? 0 : 1;
+            $msg = $data['bz_2'] == 1 ? '推荐成功' : '取消推荐';
+            $info = db('category')->where('id','eq',$tj_id)->update($data);
+            $info ? $this->success($msg) : $this->error('操作成功');
+        } else {
+            $this->error('非法操作');
+        }
     }
 
     public function del($did)
