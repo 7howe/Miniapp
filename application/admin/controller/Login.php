@@ -13,9 +13,11 @@ class Login extends Controller
             $user = $this->request->post('username');
             $pwd = $this->request->post('pwd');
             $data = Db::name('adminuser')->where('name',$user)->find();
+            $program = Db::name('program')->field('title')->order('id desc')->find();
             if($data){
                 if(md5(md5($pwd)) === $data['pwd']) {
                     Session::set('user',$user);
+                    Session::set('sysname',$program['title']);
                     $this->success('登录成功！','index/index');
                 } else {
                     return 'password error';

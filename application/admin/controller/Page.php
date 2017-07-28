@@ -9,7 +9,7 @@
 namespace app\admin\controller;
 use think\Controller;
 
-class Page extends Controller
+class Page extends Base
 {
     public function adminindex()
     {

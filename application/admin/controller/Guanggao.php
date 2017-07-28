@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Administrator
+ * User: 7howe
  * Date: 2017/7/21
  * Time: 17:17
  */
@@ -11,7 +11,7 @@ namespace app\admin\controller;
 
 use think\Controller;
 
-class Guanggao extends Controller
+class Guanggao extends Base
 {
     public function index()
     {

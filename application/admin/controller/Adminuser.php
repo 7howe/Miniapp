@@ -10,7 +10,7 @@ namespace app\admin\controller;
 
 use think\Controller;
 
-class Adminuser extends  Controller
+class Adminuser extends  Base
 {
     public function adminuser()
     {
