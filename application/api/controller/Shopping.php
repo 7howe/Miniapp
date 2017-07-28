@@ -81,7 +81,7 @@ class Shopping
             if ($num > $pronum['num']) {
                 return  array('status'=>0,'err'=>'库存不足');
             } else{
-                db('shopping_char')->
+//                db('shopping_char')->
             }
         }
     }

@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Administrator
+ * User: 7howe
  * Date: 2017/7/20
  * Time: 15:01
  */
@@ -9,12 +9,12 @@
 namespace app\admin\controller;
 use think\Controller;
 
-class Product extends Controller
+class Product extends Base
 {
     protected $upload_path;
     protected $upload_show;
 
-    protected function _initialize()
+    public function _initialize()
     {
         parent::_initialize();
         $this->upload_path = config('uploads.product_path');

@@ -9,7 +9,6 @@ use think\Controller;
  */
 class Index extends Controller
 {
-    const DATAURL = 'http://www.qhao.com/data/';
 
     public function index()
     {

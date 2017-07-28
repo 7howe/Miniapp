@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Administrator
+ * User: 7howe
  * Date: 2017/7/21
  * Time: 10:46
  */
@@ -10,7 +10,7 @@ namespace app\admin\controller;
 use think\Controller;
 use think\image\Exception;
 
-class Brand extends Controller
+class Brand extends Base
 {
     protected $brand_path;
     protected $brand_show;

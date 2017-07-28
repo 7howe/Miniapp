@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Administrator
+ * User: 7howe
  * Date: 2017/7/21
  * Time: 11:02
  */
@@ -9,7 +9,7 @@
 namespace app\admin\controller;
 use think\Controller;
 
-class User  extends Controller
+class User  extends Base
 {
     public function index()
     {

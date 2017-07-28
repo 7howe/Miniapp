@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Administrator
+ * User: 7howe
  * Date: 2017/7/21
  * Time: 15:30
  */
@@ -11,7 +11,7 @@ namespace app\admin\controller;
 
 use think\Controller;
 
-class Category extends Controller
+class Category extends Base
 {
     protected $category_path;
     protected $category_show = 'UploadFiles'.DS.'category';

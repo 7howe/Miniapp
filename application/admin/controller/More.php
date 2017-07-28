@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Administrator
+ * User: 7howe
  * Date: 2017/7/20
  * Time: 14:50
  */
@@ -10,7 +10,7 @@ namespace app\admin\controller;
 use think\Controller;
 
 
-class More extends Controller
+class More extends Base
 {
     public function setup()
     {
